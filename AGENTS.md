@@ -12,5 +12,5 @@
 ## Portfolio architecture
 - Keep the portfolio as a single page with section anchors; the requested content is one continuous personal portfolio.
 - Keep example project data separate from presentation and label it as conceptual until actual project details are supplied; avoid invented achievements.
-- Keep contact destinations unconfigured until supplied and show an honest availability dialog rather than fabricated links.
+- Keep every contact destination in one config list and render it as real links; until a URL is confirmed, use an obvious placeholder value with its placeholder flag on, so the honest note stays visible instead of implying a verified profile.
 - Pre-optimize React, its renderer, and split-route UI dependencies together in Vite; lazy dependency discovery can leave an open preview using incompatible React optimization generations.
