@@ -7,3 +7,4 @@
 - [x] Add Anmol's LinkedIn profile link.
 - [x] Add Anmol's GitHub profile link — all contact destinations are live.
 - [x] Show current education: first-year BBA Data Analytics & Data Visualization, JECRC University.
+- [x] Add Rainbow School, Jhotwara to the 12th Grade entry.
