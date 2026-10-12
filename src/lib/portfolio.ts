@@ -35,8 +35,8 @@ export type ContactLink = {
 };
 
 // Contact destinations. Every link in the contact section reads from this list.
-// The three values below are placeholders — set each `href` to the real address
-// or profile URL and change its `placeholder` flag to false when confirmed.
+// Set each `href` to the real address or profile URL, then change its
+// `placeholder` flag to false; a true flag keeps the honest note above visible.
 export const contactLinks: ContactLink[] = [
   {
     name: "Email",
@@ -47,10 +47,10 @@ export const contactLinks: ContactLink[] = [
   },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/your-linkedin-handle",
-    handle: "linkedin.com/in/your-linkedin-handle",
+    href: "https://www.linkedin.com/in/anmol-soni-801935414",
+    handle: "linkedin.com/in/anmol-soni-801935414",
     detail: "Let’s connect",
-    placeholder: true,
+    placeholder: false,
   },
   {
     name: "GitHub",
