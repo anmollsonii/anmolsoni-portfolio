@@ -6,3 +6,4 @@
 - [x] Add Anmol's email address to the contact links.
 - [x] Add Anmol's LinkedIn profile link.
 - [x] Add Anmol's GitHub profile link — all contact destinations are live.
+- [x] Show current education: first-year BBA Data Analytics & Data Visualization, JECRC University.
