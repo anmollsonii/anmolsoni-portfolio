@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowUpRight, ArrowRight, ArrowDown, BarChart3, Camera, ChartNoAxesCombined, Code2, BriefcaseBusiness, CalendarDays, Film, GraduationCap, MapPin, Github, Linkedin, Mail, Menu, X, Gamepad2, Bike, Sparkles } from "lucide-react";
+import { ArrowUpRight, ArrowRight, ArrowDown, BarChart3, Camera, ChartNoAxesCombined, Code2, BriefcaseBusiness, CalendarDays, Film, GraduationCap, MapPin, Github, Linkedin, Mail, Menu, X, Gamepad2, Bike } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { projects, type PortfolioProject } from "@/lib/portfolio";
+import { contactLinks, projects, type PortfolioProject } from "@/lib/portfolio";
 import heroImage from "@/assets/campus-hero.jpg";
 import campusImage from "@/assets/campus-stories.jpg";
 
@@ -29,6 +29,8 @@ const skills = [
   { name: "Video Editing", icon: Film },
 ];
 
+const contactIcons = { Email: Mail, LinkedIn: Linkedin, GitHub: Github } as const;
+
 function DataPreview() {
   return <div className="data-preview" aria-label="Illustrative business analytics dashboard">
     <div className="dashboard-window">
@@ -43,7 +45,6 @@ function DataPreview() {
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null);
-  const [contact, setContact] = useState<string | null>(null);
   const navItems = ["About", "Skills", "Projects", "Contact"];
 
   return <div className="portfolio">
