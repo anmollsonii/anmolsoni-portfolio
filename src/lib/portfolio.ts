@@ -40,10 +40,10 @@ export type ContactLink = {
 export const contactLinks: ContactLink[] = [
   {
     name: "Email",
-    href: "mailto:hello@example.com",
-    handle: "hello@example.com",
+    href: "mailto:theheadergaming@gmail.com",
+    handle: "theheadergaming@gmail.com",
     detail: "Say hello",
-    placeholder: true,
+    placeholder: false,
   },
   {
     name: "LinkedIn",
