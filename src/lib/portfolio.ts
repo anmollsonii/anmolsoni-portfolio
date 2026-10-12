@@ -54,9 +54,9 @@ export const contactLinks: ContactLink[] = [
   },
   {
     name: "GitHub",
-    href: "https://github.com/your-github-username",
-    handle: "github.com/your-github-username",
+    href: "https://github.com/anmollsonii",
+    handle: "github.com/anmollsonii",
     detail: "Follow the journey",
-    placeholder: true,
+    placeholder: false,
   },
 ];
