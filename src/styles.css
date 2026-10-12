@@ -286,6 +286,7 @@ a { transition: color 180ms ease; }
 .contact-link > svg:last-child { margin-left:auto; width:19px; height:19px; }
 .contact-link span { text-align:left; font-size:14px; font-weight:500; }
 .contact-link small { display:block; color:var(--forest-muted); font-size:10px; font-weight:400; margin-top:3px; }
+.contact-note { font-size:9px; line-height:1.8; color:var(--forest-muted); margin-top:16px; max-width:280px; }
 .footer { display:flex; align-items:center; justify-content:space-between; min-height:80px; gap:20px; }
 .footer-brand { font-weight:700; font-size:13px; }
 .footer-brand span { color:var(--primary); }

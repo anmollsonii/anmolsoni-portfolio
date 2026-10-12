@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowUpRight, ArrowRight, ArrowDown, BarChart3, Camera, ChartNoAxesCombined, Code2, BriefcaseBusiness, CalendarDays, Film, GraduationCap, MapPin, Github, Linkedin, Mail, Menu, X, Gamepad2, Bike, Sparkles } from "lucide-react";
+import { ArrowUpRight, ArrowRight, ArrowDown, BarChart3, Camera, ChartNoAxesCombined, Code2, BriefcaseBusiness, CalendarDays, Film, GraduationCap, MapPin, Github, Linkedin, Mail, Menu, X, Gamepad2, Bike } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { projects, type PortfolioProject } from "@/lib/portfolio";
+import { contactLinks, projects, type PortfolioProject } from "@/lib/portfolio";
 import heroImage from "@/assets/campus-hero.jpg";
 import campusImage from "@/assets/campus-stories.jpg";
 
@@ -29,6 +29,8 @@ const skills = [
   { name: "Video Editing", icon: Film },
 ];
 
+const contactIcons = { Email: Mail, LinkedIn: Linkedin, GitHub: Github } as const;
+
 function DataPreview() {
   return <div className="data-preview" aria-label="Illustrative business analytics dashboard">
     <div className="dashboard-window">
@@ -43,7 +45,6 @@ function DataPreview() {
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null);
-  const [contact, setContact] = useState<string | null>(null);
   const navItems = ["About", "Skills", "Projects", "Contact"];
 
   return <div className="portfolio">
@@ -85,11 +86,10 @@ function Index() {
 
       <section id="projects" className="page-width section-space"><div className="section-label"><span>03 / SELECTED PROJECTS</span><span className="section-line" /></div><div className="section-heading"><h2 className="section-title">Ideas turned into explorations.</h2><span className="project-note">PROJECT CONCEPTS / 01—02</span></div><div className="projects-grid">{projects.map((project, index) => <article className="project" key={project.id}><Button variant="ghost" className="project-image-button" onClick={() => setSelectedProject(project)} aria-label={`Explore ${project.title}`}>{project.id === "campus" ? <><img src={campusImage} width={1280} height={832} alt="Illustrative campus photo of students walking through a courtyard" loading="lazy" /><span className="photo-caption"><Camera size={15} /> CAMPUS, THROUGH A DIFFERENT LENS.</span></> : <DataPreview />}<span className="project-open"><ArrowUpRight size={22} /></span></Button><div className="project-meta"><span>{project.category}</span><span>0{index + 1}</span></div><h3><Button variant="link" className="project-title" onClick={() => setSelectedProject(project)}>{project.title}<ArrowUpRight /></Button></h3><p className="section-copy">{project.description}</p><div className="project-tools">{project.tools.map(tool => <span key={tool}>{tool}</span>)}</div></article>)}</div><p className="sample-disclaimer">Project concepts and illustrative imagery; original work and results to follow.</p></section>
 
-      <section id="contact" className="contact-section"><div className="page-width contact-inner"><div><div className="section-label"><span>04 / LET’S CONNECT</span></div><h2>Good things start<br />with a <span>conversation.</span><ArrowUpRight className="contact-arrow" /></h2><p>Have an idea, a project, or just want to say hello?<br />I’d love to hear from you.</p></div><div className="contact-links">{[{ name: "Email", icon: Mail, detail: "Say hello" }, { name: "LinkedIn", icon: Linkedin, detail: "Let’s connect" }, { name: "GitHub", icon: Github, detail: "Follow the journey" }].map(({ name, icon: Icon, detail }) => <Button key={name} variant="ghost" className="contact-link" onClick={() => setContact(name)}><Icon size={21} /><span>{name}<small>{detail}</small></span><ArrowUpRight /></Button>)}</div></div></section>
+      <section id="contact" className="contact-section"><div className="page-width contact-inner"><div><div className="section-label"><span>04 / LET’S CONNECT</span></div><h2>Good things start<br />with a <span>conversation.</span><ArrowUpRight className="contact-arrow" /></h2><p>Have an idea, a project, or just want to say hello?<br />I’d love to hear from you.</p></div><div className="contact-links">{contactLinks.map(({ name, href, handle, detail }) => { const Icon = contactIcons[name]; const external = href.startsWith("http"); return <Button key={name} asChild variant="ghost" className="contact-link"><a href={href} title={handle} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}><Icon size={21} /><span>{name}<small>{detail}</small></span><ArrowUpRight /></a></Button>; })}{contactLinks.some(link => link.placeholder) && <p className="contact-note">Email and profile links above are placeholders for now; confirmed addresses will appear here.</p>}</div></div></section>
     </main>
     <footer className="page-width footer"><a href="#home" className="footer-brand">Anmol Soni<span>.</span></a><p>© {new Date().getFullYear()} Anmol Soni. Made with curiosity.</p><a href="#home" className="back-top">Back to top <ArrowUpRight size={15} /></a></footer>
 
     <Dialog open={selectedProject !== null} onOpenChange={open => { if (!open) setSelectedProject(null); }}><DialogContent className="max-h-[85dvh] overflow-y-auto rounded-lg"><span className="eyebrow text-primary">PROJECT CONCEPT</span><DialogTitle className="text-2xl leading-snug">{selectedProject?.title}</DialogTitle><DialogDescription className="leading-relaxed">{selectedProject?.description}</DialogDescription><p className="text-sm leading-relaxed text-muted-foreground">{selectedProject?.detail}</p><div className="project-tools">{selectedProject?.tools.map(tool => <span key={tool}>{tool}</span>)}</div></DialogContent></Dialog>
-    <Dialog open={contact !== null} onOpenChange={open => { if (!open) setContact(null); }}><DialogContent className="rounded-lg"><Sparkles className="text-primary" /><DialogTitle>{contact === "Email" ? "A conversation, soon." : `Find me on ${contact}, soon.`}</DialogTitle><DialogDescription className="leading-relaxed">{contact === "Email" ? "Anmol’s email address hasn’t been added yet. Contact details will be available here once confirmed." : `Anmol’s ${contact} profile hasn’t been added yet. The direct profile link will be available here once confirmed.`}</DialogDescription><Button className="mt-2 justify-self-start" onClick={() => setContact(null)}>Got it <ArrowRight /></Button></DialogContent></Dialog>
   </div>;
 }
