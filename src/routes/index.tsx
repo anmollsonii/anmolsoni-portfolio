@@ -10,7 +10,7 @@ import campusImage from "@/assets/campus-stories.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
     { title: "Anmol Soni — Business, Data & Creative Perspectives" },
-    { name: "description", content: "Meet Anmol Soni, a BBA student at JECRC University exploring business analytics, data visualization, and photography." },
+    { name: "description", content: "Meet Anmol Soni, a first-year BBA student at JECRC University exploring business analytics, data visualization, and photography." },
     { property: "og:title", content: "Anmol Soni — Business, Data & Creative Perspectives" },
     { property: "og:description", content: "A personal portfolio at the intersection of data-driven insights and creative storytelling." },
     { property: "og:type", content: "website" },
@@ -68,8 +68,9 @@ function Index() {
         <div className="page-width hero-content">
           <div className="eyebrow"><span className="status-dot" /> STUDENT. ANALYST. STORYTELLER.</div>
           <h1>Anmol Soni<span>.</span></h1>
-          <h2>A curious mind.<br />A creative perspective.</h2>
-          <p>Hi, I’m Anmol. I am a first-year BBA student with a passion for blending data-driven insights with creative storytelling.</p>
+          <h2>First-year BBA student exploring<br /><strong>business analytics, data visualization, and photography.</strong></h2>
+          <p>Hi, I’m Anmol — passionate about blending data-driven insights with creative storytelling.</p>
+
           <div className="hero-actions"><Button asChild size="lg" className="h-12 px-6"><a href="#projects">View Projects <ArrowUpRight /></a></Button><Button asChild variant="outline" size="lg" className="h-12 border-foreground/25 bg-background/40 px-6"><a href="#contact">Contact Me <ArrowRight /></a></Button></div>
           <div className="hero-location"><MapPin size={14} /> Jaipur, India <span className="location-divider" /> BBA @ JECRC University</div>
         </div>
