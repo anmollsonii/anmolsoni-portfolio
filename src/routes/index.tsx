@@ -11,6 +11,7 @@ export const Route = createFileRoute("/")({
   head: () => ({ meta: [
     { title: "Anmol Soni — Business, Data & Creative Perspectives" },
     { name: "description", content: "Meet Anmol Soni, a first-year BBA student at JECRC University exploring business analytics, data visualization, and photography." },
+    { name: "google-site-verification", content: "fH0pW8VKNOQXgqBLk3dMDIzHqgtmMi8mU3wAW7-c9QI" },
     { property: "og:title", content: "Anmol Soni — Business, Data & Creative Perspectives" },
     { property: "og:description", content: "A personal portfolio at the intersection of data-driven insights and creative storytelling." },
     { property: "og:type", content: "website" },
